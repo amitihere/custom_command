@@ -40,6 +40,17 @@ program
         console.log(`The coin landed on ${coin}`);
     });
 program
+    .command('quote')
+    .action(async () => {
+        try {
+            const response = await axios.get('https://dummyjson.com/quotes');
+            const quote = response.data;
+            console.log(`"${quote.quotes[Math.floor(Math.random() * quote.quotes.length)].quote}" - ${quote.quotes[Math.floor(Math.random() * quote.quotes.length)].author}`);
+        }   catch (error) {
+            console.error('Error fetching quote:', error);
+        }
+    });
+program
     .command('joke')
     .action(async () => {
         try {
