@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const {Command} = require('commander');
 const axios = require('axios');
+const chalk = require('chalk');
 const program = new Command();
 
 
@@ -40,6 +41,15 @@ program
         const coin = Math.random() > 0.5 ? 'Heads' : 'Tails';
         console.log(`The coin landed on ${coin}`);
     });
+program
+  .command('favorite-color <color>')
+  .action((color) => {
+    const paint = chalk[color.toLowerCase()] || chalk.white;
+
+    console.log(`Your favorite color is ${color}!`);
+    console.log(paint(`This is your favorite color!`));
+  });
+
 program
     .command('quote')
     .action(async () => {
