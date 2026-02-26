@@ -33,6 +33,12 @@ program
     }
 });
 program
+    .command('coin call')
+    .action(() => {
+    const coin = Math.random() > 0.5 ? 'Heads' : 'Tails';
+    console.log(`The coin landed on ${coin}`);
+});
+program
     .command('joke')
     .action(async () => {
     try {
