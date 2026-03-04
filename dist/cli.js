@@ -1,4 +1,33 @@
 #!/usr/bin/env node
+const cli_engine = require('./cli_engine/cli_engine');
+const addcommand = require('./commands/addCommand');
+const greetCommand = require('./commands/greetCommand');
+const jokeCommand = require('./commands/jokeCommand');
+const coinCommand = require('./commands/coinCommand');
+const cuteCommand = require('./commands/cuteCommand');
+const divideCommand = require('./commands/divideCommand');
+const favCommand = require('./commands/favCommand');
+const helpCommand = require('./commands/helpCommand');
+const initTSCommand = require('./commands/initTS');
+const multiplyCommand = require('./commands/multiplyCommand');
+const quoteCommand = require('./commands/quoteCommand');
+const subtractCommand = require('./commands/subtractCommand');
+const engine = new cli_engine();
+engine.registerCommands([
+    addcommand,
+    greetCommand,
+    jokeCommand,
+    coinCommand,
+    cuteCommand,
+    divideCommand,
+    favCommand,
+    helpCommand,
+    initTSCommand,
+    multiplyCommand,
+    quoteCommand,
+    subtractCommand
+]);
+engine.run();
 // const {Command} = require('commander');
 // const axios = require('axios');
 // const chalk = require('chalk');

@@ -1,5 +1,8 @@
 class Greet_Command {
-    regiter() {
+    constructor(program) {
+        this.program = program;
+    }
+    register() {
         this.program
             .command('greet <name>')
             .action((name) => this.sayHello(name));

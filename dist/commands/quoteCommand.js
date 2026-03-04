@@ -1,3 +1,4 @@
+var axios = require('axios');
 class QuoteCommand {
     constructor(program) {
         this.program = program;

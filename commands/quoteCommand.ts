@@ -1,21 +1,23 @@
+var axios = require('axios');
+
 class QuoteCommand {
     program;
 
     constructor(program) {
         this.program = program;
     }
-    
-    register(){
+
+    register() {
         this.program
-        .command('quote')
-        .action(() => this.quoteCall());
+            .command('quote')
+            .action(() => this.quoteCall());
     }
-    async quoteCall(){
-        try{
+    async quoteCall() {
+        try {
             const response = await axios.get('https://dummyjson.com/quotes');
             const quotes = response.data;
             console.log(`"${quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)].quote}" - ${quotes.quotes[Math.floor(Math.random() * quotes.quotes.length)].author}`);
-        }catch(err){
+        } catch (err) {
             console.error('Error fetching quote:', err);
         }
     }

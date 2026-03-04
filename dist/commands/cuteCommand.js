@@ -1,3 +1,4 @@
+var axios = require('axios');
 class CuteCommand {
     constructor(program) {
         this.program = program;

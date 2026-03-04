@@ -1,16 +1,18 @@
+var chalk = require('chalk');
+
 class FavCommand {
     program;
 
     constructor(program) {
         this.program = program;
     }
-    
-    register(){
+
+    register() {
         this.program
-        .command('favourite <colour>')
-        .action((colour) => this.favouriteCall(colour));
+            .command('favourite <colour>')
+            .action((colour) => this.favouriteCall(colour));
     }
-    favouriteCall(colour){
+    favouriteCall(colour) {
         const paint = chalk[colour.toLowerCase()] || chalk.white;
         console.log(`Your favorite color is ${colour}!`);
         console.log(paint(`This is your favorite color!`));

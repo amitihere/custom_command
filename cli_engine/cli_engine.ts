@@ -16,3 +16,4 @@ class CLI_Engine {
         this.program.parse()
     }
 }
+module.exports = CLI_Engine;

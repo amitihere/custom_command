@@ -1,6 +1,6 @@
 const { execSync } = require("child_process");
-const chalk = require("chalk");
-const axios = require("axios");
+var chalk = require("chalk");
+var axios = require("axios");
 class init_TS {
     constructor(program) {
         this.program = program;
@@ -22,3 +22,4 @@ class init_TS {
         execSync(command, { stdio: "inherit" });
     }
 }
+module.exports = init_TS;

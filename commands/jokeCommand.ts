@@ -1,34 +1,25 @@
+var axios = require('axios');
+
 class JokeCommand {
     program;
 
     constructor(program) {
         this.program = program;
     }
-    
-    register(){
+
+    register() {
         this.program
-        .command('joke')
-        .action(() => this.jokeCall());
+            .command('joke')
+            .action(() => this.jokeCall());
     }
-    async jokeCall(){
-        try{
+    async jokeCall() {
+        try {
             const response = await axios.get('https://official-joke-api.appspot.com/random_joke');
             const jokes = response.data;
             console.log(`${jokes.setup} - ${jokes.punchline}`);
-        }catch(err){
+        } catch (err) {
             console.error('Error fetching joke:', err);
         }
     }
 }
-// program
-//     .command('joke')
-//     .action(async () => {
-//         try {
-//             const response = await axios.get('https://official-joke-api.appspot.com/random_joke');
-//             const jokes = response.data;
-//             console.log(`${jokes.setup} - ${jokes.punchline}`);
-//         } catch (error) {
-//             console.error('Error fetching joke:', error);
-//         }
-//     });
 module.exports = JokeCommand;

@@ -1,6 +1,6 @@
 const { execSync } = require("child_process")
-const chalk = require("chalk")
-const axios = require("axios")
+var chalk = require("chalk")
+var axios = require("axios")
 class init_TS {
     program;
 
@@ -10,8 +10,8 @@ class init_TS {
 
     register() {
         this.program
-        .command("init_ts <folderName>")
-        .action((folderName) => this.initializeTS(folderName))
+            .command("init_ts <folderName>")
+            .action((folderName) => this.initializeTS(folderName))
     }
 
     initializeTS(folderName) {
@@ -22,8 +22,8 @@ class init_TS {
         this.run(`cd ${folderName} && tsc --init`)
         console.log(chalk.blue("Typescript Project Created"));
     }
-
     run(command) {
-        execSync(command, {stdio: "inherit"})
+        execSync(command, { stdio: "inherit" })
     }
 }
+module.exports = init_TS;
