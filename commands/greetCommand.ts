@@ -13,3 +13,4 @@ class Greet_Command {
         console.log(`Hello, ${name}`);
     }
 }
+module.exports = Greet_Command;
