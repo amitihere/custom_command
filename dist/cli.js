@@ -5,9 +5,10 @@ const chalk = require('chalk');
 const program = new Command();
 program
     .command('greet <name>')
-    .action((name) => {
+    .action((name) => sayHello(name));
+function sayHello(name) {
     console.log(`Hello, ${name}!`);
-});
+}
 program
     .command('add <num1> <num2>')
     .action((num1, num2) => {

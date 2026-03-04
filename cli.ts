@@ -7,9 +7,11 @@ const program = new Command();
 
 program
     .command('greet <name>')
-    .action((name)=>{
+    .action((name)=>sayHello(name));
+
+    function sayHello(name:string){
         console.log(`Hello, ${name}!`);
-    })
+    }
 
 program
     .command('add <num1> <num2>')
