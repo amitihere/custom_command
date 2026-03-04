@@ -1,5 +1,6 @@
 const { execSync } = require("child_process");
 const chalk = require("chalk");
+const axios = require("axios");
 class init_TS {
     constructor(program) {
         this.program = program;
